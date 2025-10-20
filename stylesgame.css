@@ -212,7 +212,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 50px;
-  z-index: 200;
+  z-index: 10;
 }
 
 .obstacle {
@@ -222,7 +222,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 120%;
-  z-index: 200;
+  z-index: 10;
 }
 
 /* quando quiser pausar via classe */
