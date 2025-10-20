@@ -3,7 +3,7 @@ const obstacle = document.querySelector('.obstacle');
 const startBtn = document.getElementById('startBtn');
 
 let isJumping = false;
-let gravity = 0.96;
+let gravity = 0.99;
 let position = 0;
 let gameStarted = false;
 let obstacleTimerId = null;
@@ -15,7 +15,7 @@ function jump() {
   isJumping = true;
 
   let upInterval = setInterval(() => {
-    if (position >= 100) {
+    if (position >= 120) {
       clearInterval(upInterval);
 
       let downInterval = setInterval(() => {
@@ -100,7 +100,6 @@ startBtn.addEventListener('click', () => {
   }
 });
 
-/* troca de cenário a cada 20s (só quando o jogo estiver rodando) */
 setInterval(() => {
   if (gameStarted) trocarCenarioAleatorio();
 }, 20000);
