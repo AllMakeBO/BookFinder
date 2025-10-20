@@ -1,0 +1,48 @@
+h1{
+  font-size: clamp(50px, 10vw, 500px);
+  text-align: center;
+}
+
+body {
+  margin: 0;  
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/panoramic_landmarks_no_alien.png'); /* Substitua pelo caminho da sua imagem */
+  background-size: cover; /* Redimensiona a imagem para cobrir toda a tela */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
+  background-position: center center; /* Centraliza a imagem */
+  background-attachment: fixed; /* Impede que a imagem role com o conteúdo */
+}
+
+#playbutton{
+  width: clamp(150px, 20vw, 200px);
+  height: clamp(75px, 10vw, 100px);
+  margin: auto;
+}
+
+#playbutton button{
+  background: #7ea189;
+  font-size: clamp(40px, 10vw, 50px);
+  width: clamp(150px, 20vw, 200px);
+  height: clamp(75px, 10vw, 100px);
+  cursor: pointer;
+  border-width: 5px;
+  border-radius: 30px;
+}
+
+.effect-zoom {
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.effect-zoom:hover {
+  transform: scale(1.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.footer{
+  background: #7ea189;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  right: 0%;
+  position: fixed;
+  bottom: 0%;
+}
+
