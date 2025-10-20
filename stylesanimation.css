@@ -1,0 +1,279 @@
+/* Estilos gerais */
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+    font-family: sans-serif; /* Usando fonte normal */
+    color: #fff;
+}
+
+.space-scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #000000, #1a0033, #330066);
+    overflow: hidden;
+}
+
+/* Estrelas */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 5s infinite ease-in-out alternate;
+}
+
+/* Tamanhos e posições aleatórias para as estrelas */
+.star:nth-child(1) { top: 10%; left: 20%; width: 2px; height: 2px; animation-delay: 0s; }
+.star:nth-child(2) { top: 50%; left: 70%; width: 3px; height: 3px; animation-delay: 1s; }
+.star:nth-child(3) { top: 80%; left: 40%; width: 1px; height: 1px; animation-delay: 2s; }
+.star:nth-child(4) { top: 30%; left: 90%; width: 2px; height: 2px; animation-delay: 3s; }
+.star:nth-child(5) { top: 60%; left: 10%; width: 3px; height: 3px; animation-delay: 4s; }
+.star:nth-child(6) { top: 20%; left: 50%; width: 1px; height: 1px; animation-delay: 0.5s; }
+.star:nth-child(7) { top: 70%; left: 25%; width: 2px; height: 2px; animation-delay: 1.5s; }
+.star:nth-child(8) { top: 40%; left: 80%; width: 3px; height: 3px; animation-delay: 2.5s; }
+
+@keyframes twinkle {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.5); }
+}
+
+/* Terra */
+.earth {
+    position: absolute;
+    bottom: -200px; /* Começa fora da tela */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: 
+        /* Continentes (camadas de gradientes para simular formas) */
+        radial-gradient(circle at 70% 30%, #4CAF50 15%, transparent 15%) 0 0,
+        radial-gradient(circle at 30% 70%, #4CAF50 18%, transparent 18%) 0 0,
+        radial-gradient(circle at 50% 50%, #4CAF50 10%, transparent 10%) 0 0,
+        radial-gradient(circle at 85% 55%, #4CAF50 12%, transparent 12%) 0 0,
+        radial-gradient(circle at 15% 45%, #4CAF50 13%, transparent 13%) 0 0,
+        radial-gradient(circle at 40% 20%, #4CAF50 8%, transparent 8%) 0 0,
+        radial-gradient(circle at 60% 80%, #4CAF50 9%, transparent 9%) 0 0,
+        /* Oceano */
+        radial-gradient(circle at 50% 50%, #2196F3 70%, #0D47A1 100%);
+    background-size: 100% 100%; /* Ajusta o tamanho dos gradientes para cobrir a área */
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 100, 255, 0.5);
+    animation: earth-approach 10s forwards;
+}
+
+@keyframes earth-approach {
+    0% { bottom: -200px; opacity: 0; }
+    50% { bottom: 0px; opacity: 1; }
+    100% { bottom: 0px; opacity: 1; }
+}
+
+/* Nave espacial */
+.spaceship {
+    position: absolute;
+    top: -100px; /* Começa fora da tela */
+    left: 50%;
+    transform: translateX(-50%) rotate(20deg); /* Inclinação inicial */
+    width: 120px;
+    height: 60px;
+    animation: spaceship-descent 8s forwards, spaceship-wobble 0.5s infinite alternate 8s;
+    opacity: 0;
+    z-index: 10;
+}
+
+.ship-body {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.ship-dome {
+    width: 70%;
+    height: 70%;
+    background-color: #88f;
+    border-radius: 50%;
+    position: absolute;
+    top: -30%; /* Posiciona a cúpula acima do corpo principal */
+    left: 15%;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Garante que o alienígena não vaze */
+}
+
+.alien {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: transparent; /* Cor de fundo transparente para o alienígena */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; /* Tamanho da fonte para o rosto */
+    line-height: 1; /* Ajuste da linha para o rosto */
+    color: #000; /* Cor do rosto */
+    transform: translateY(5px); /* Ajuste vertical para posicionamento */
+}
+
+.alien::before {
+    content: 'o_o'; /* O rosto pixelado */
+    position: absolute;
+    color: black; /* Alien preto */
+}
+
+.alien-eyes {
+    /* Não é mais necessário, mas mantido para evitar erros no HTML */
+    display: none;
+}
+
+.ship-light {
+    position: absolute;
+    bottom: -10px;
+    left: 30%;
+    width: 40%;
+    height: 20px;
+    background: radial-gradient(circle, rgba(255, 255, 0, 0.8) 0%, rgba(255, 255, 0, 0) 70%);
+    border-radius: 50%;
+    transform: rotate(180deg);
+    animation: ship-light-pulse 1s infinite alternate;
+}
+
+@keyframes spaceship-descent {
+    0% { top: -100px; opacity: 0; transform: translateX(-50%) rotate(20deg); }
+    20% { opacity: 1; }
+    80% { top: 60%; transform: translateX(-50%) rotate(-5deg); }
+    100% { top: 70%; transform: translateX(-50%) rotate(0deg); }
+}
+
+@keyframes spaceship-wobble {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(2deg); }
+}
+
+@keyframes ship-light-pulse {
+    0% { transform: rotate(180deg) scale(1); opacity: 1; }
+    100% { transform: rotate(180deg) scale(1.2); opacity: 0.8; }
+}
+
+/* Efeitos de impacto */
+.impact-effect {
+    position: absolute;
+    top: 70%; /* Posição de impacto da nave */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 165, 0, 0.8) 0%, rgba(255, 165, 0, 0) 70%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: impact-fade 1s forwards 8s;
+}
+
+@keyframes impact-fade {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+}
+
+/* Partículas de poeira */
+.dust-particle {
+    position: absolute;
+    background-color: #8B4513; /* Cor de terra */
+    border-radius: 50%;
+    opacity: 0;
+    animation: dust-spread 2s forwards 8.5s;
+}
+
+.dust-particle:nth-child(1) { top: 75%; left: 45%; width: 5px; height: 5px; }
+.dust-particle:nth-child(2) { top: 70%; left: 55%; width: 8px; height: 8px; }
+.dust-particle:nth-child(3) { top: 80%; left: 48%; width: 6px; height: 6px; }
+.dust-particle:nth-child(4) { top: 72%; left: 52%; width: 7px; height: 7px; }
+
+@keyframes dust-spread {
+    0% { opacity: 0; transform: translate(0, 0); }
+    20% { opacity: 1; }
+    100% { opacity: 0; transform: translate(calc((var(--random-x) - 0.5) * 200px), calc((var(--random-y) - 0.5) * 200px)) scale(0); }
+}
+
+/* Animação para os olhos do alienígena (perda de memória) */
+@keyframes alien-memory-loss {
+    0% { color: #000; }
+    50% { color: #f00; }
+    100% { color: #000; }
+}
+
+.alien.memory-loss::before {
+    animation: alien-memory-loss 1s infinite alternate;
+}
+
+/* Texto da história */
+.story-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 1.5em;
+    opacity: 0;
+    animation: text-fade-in 2s forwards 10s;
+    width: 80%;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.story-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+@keyframes text-fade-in {
+    0% { opacity: 0; transform: translate(-50%, -40%); }
+    100% { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* Botões */
+.inicio, .inicio1 {
+    position: absolute;
+    bottom: 50px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.inicio {
+    left: 40%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: button-fade-in 1s forwards 15s;
+}
+
+.inicio1 {
+    left: 60%;
+    transform: translateX(-50%);
+    opacity: 1; /* Visível desde o início */
+    animation: none; /* Remove a animação de fade-in */
+}
+
+@keyframes button-fade-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
