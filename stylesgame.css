@@ -1,0 +1,229 @@
+/* layout básico */
+body {
+  margin: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#startBtn {
+  position: absolute;
+  width: 150px;
+  height: 48px;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #7ea189;
+  color: black;
+  border: solid black 1px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 12px;
+  z-index: 100;
+}
+
+/* área do jogo */
+.game {
+  width: clamp(300px, 80vw, 900px);
+  height: clamp(300px, 80vw, 900px);
+  background-color: lightblue;
+  border: 2px solid #333;
+  position: relative;
+  overflow: hidden;
+}
+
+/* camadas base */
+.background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%; /* dobra para facilitar repeat */
+  height: 100%;
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  z-index: 0;
+  /* pausa por padrão; só rodará quando o jogo começar */
+  animation-play-state: paused;
+}
+
+/* cada cenário fica oculto até ser ativado */
+.cenario {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  display: none;
+}
+
+.cenario.active {
+  display: block;
+}
+
+/* ---------- CENARIO 1 - Paris ---------- */
+.cenario1 .layer1 {
+  background: linear-gradient(to bottom, #47bfff 0%, #80d7ff 100%);
+  z-index: 1;
+  animation: none;
+}
+.cenario1 .layer2 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20Paris.png');
+  animation: none;
+  z-index: 2;
+}
+.cenario1 .layer3 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20Paris.png');
+  animation: moveBackground 28s linear infinite;
+  z-index: 3;
+}
+.cenario1 .layer4 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png');
+  animation: moveBackground 5s linear infinite;
+  z-index: 4;
+}
+
+/* ---------- CENARIO 2 - Egito ---------- */
+.cenario2 .layer1 {
+  background: linear-gradient(to bottom, #d65d00 0%, #c2a92b 100%);
+  z-index: 1;
+  animation: none;
+}
+.cenario2 .layer2 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20Egito.png');
+  animation: moveBackground 60s linear infinite;
+  z-index: 2;
+}
+.cenario2 .layer3 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20Egito.png');
+  animation: none;
+  bottom: -10px;
+  z-index: 3;
+}
+.cenario2 .layer4 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png');
+  animation: moveBackground 5s linear infinite;
+  z-index: 4;
+}
+
+/* ---------- CENARIO 3 - China ---------- */
+.cenario3 .layer1 {
+  background: linear-gradient(to bottom, #47bfff 0%, #80d7ff 100%);
+  z-index: 1;
+  animation: none;
+}
+.cenario3 .layer2 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20China.png');
+  animation: moveBackground 60s linear infinite;
+  z-index: 2;
+}
+.cenario3 .layer3 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20China.png');
+  animation: none;
+  bottom: -10px;  
+  z-index: 3;
+}
+.cenario3 .layer4 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png');
+  animation: moveBackground 5s linear infinite;
+  z-index: 4;
+}
+
+/* ---------- CENARIO 4 - Brasil ---------- */
+.cenario4 .layer1 {
+  background: linear-gradient(to bottom, #47bfff 0%, #80d7ff 100%);
+  z-index: 1;
+  animation: none;
+}
+.cenario4 .layer2 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20Brasil.png');
+  animation: moveBackground 60s linear no-repeat;
+  bottom: -25px;
+  z-index: 2;
+}
+.cenario4 .layer3 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20Brasilv2.png');
+  animation: moveBackground 28s linear infinite;
+  z-index: 3;
+}
+.cenario4 .layer4 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/3%20-%20Brasil.png');
+  animation: moveBackground 10s linear infinite;
+  z-index: 4;
+}
+.cenario4 .layer5 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png');
+  animation: moveBackground 5s linear infinite;
+  z-index: 5;
+}
+
+/* ---------- CENARIO 5 - EUA ---------- */
+.cenario5 .layer1 {
+  background: linear-gradient(to bottom, #172152 0%, #886dc2 100%);
+  z-index: 1;
+  animation: none;
+}
+
+.cenario5 .layer2 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20EUA.png');
+  animation: moveBackground 60s linear infinite;
+  z-index: 2;
+}
+
+.cenario5 .layer3 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20EUA.png');
+  animation: moveBackground 45s linear infinite;
+  z-index: 3;
+}
+.cenario5 .layer4 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/3%20-EUA.png');
+  animation: moveBackground 28s linear infinite;
+  z-index: 4;
+}
+.cenario5 .layer5 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/4%20-%20EUA.png');
+  z-index: 5;
+}
+.cenario5 .layer6 {
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png');
+  animation: moveBackground 5s linear infinite;
+  z-index: 6;
+}
+
+/* Animação do movimento horizontal das camadas (aplica-se às layers que têm animation) */
+@keyframes moveBackground {
+  from { background-position-x: 0; }
+  to   { background-position-x: -2000px; } /* ajustar conforme necessidade */
+}
+
+/* personagem e obstáculo */
+.robson {
+  width: 150px;
+  height: 150px;
+  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/pixilart-drawing.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+  z-index: 200;
+}
+
+.obstacle {
+  width: 45px;
+  height: 80px;
+  background-color: gray;
+  position: absolute;
+  bottom: 0;
+  left: 120%;
+  z-index: 200;
+}
+
+/* quando quiser pausar via classe */
+.game.paused .background {
+  animation-play-state: paused !important;
+}
