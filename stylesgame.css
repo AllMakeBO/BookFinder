@@ -30,8 +30,8 @@ body {
 .game {
   margin-bottom: 100px;
   margin-top: 100px;
-  width: clamp(300px, 70vw, 900px);
-  height: clamp(300px, 70vw, 900px);
+  width: clamp(300px, 70vw, 800px);
+  height: clamp(300px, 70vw, 800px);
   background-color: lightblue;
   border: 2px solid #333;
   position: relative;
