@@ -43,7 +43,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 200%; /* dobra para facilitar repeat */
+  width: 100%; /* Voltando para 100% */
   height: 100%;
   background-repeat: repeat-x;
   background-size: auto 100%;
@@ -74,17 +74,17 @@ body {
   animation: none;
 }
 .cenario1 .layer2 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20Paris.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20Paris.png");
   animation: none;
   z-index: 2;
 }
 .cenario1 .layer3 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20Paris.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20Paris.png");
   animation: moveBackground 28s linear infinite;
   z-index: 3;
 }
 .cenario1 .layer4 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
   animation: moveBackground 5s linear infinite;
   z-index: 4;
 }
@@ -96,18 +96,18 @@ body {
   animation: none;
 }
 .cenario2 .layer2 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20Egito.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20Egito.png");
   animation: moveBackground 60s linear infinite;
   z-index: 2;
 }
 .cenario2 .layer3 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20Egito.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20Egito.png");
   animation: none;
   bottom: -10px;
   z-index: 3;
 }
 .cenario2 .layer4 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
   animation: moveBackground 5s linear infinite;
   z-index: 4;
 }
@@ -119,18 +119,18 @@ body {
   animation: none;
 }
 .cenario3 .layer2 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20China.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20China.png");
   animation: moveBackground 60s linear infinite;
   z-index: 2;
 }
 .cenario3 .layer3 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20China.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20China.png");
   animation: none;
   bottom: -10px;  
   z-index: 3;
 }
 .cenario3 .layer4 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
   animation: moveBackground 5s linear infinite;
   z-index: 4;
 }
@@ -142,23 +142,23 @@ body {
   animation: none;
 }
 .cenario4 .layer2 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20Brasil.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20Brasil.png");
   animation: moveBackground 60s linear no-repeat;
   bottom: -25px;
   z-index: 2;
 }
 .cenario4 .layer3 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20Brasilv2.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20Brasilv2.png");
   animation: moveBackground 28s linear infinite;
   z-index: 3;
 }
 .cenario4 .layer4 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/3%20-%20Brasil.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/3%20-%20Brasil.png");
   animation: moveBackground 10s linear infinite;
   z-index: 4;
 }
 .cenario4 .layer5 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
   animation: moveBackground 5s linear infinite;
   z-index: 5;
 }
@@ -171,27 +171,27 @@ body {
 }
 
 .cenario5 .layer2 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20EUA.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20EUA.png");
   animation: moveBackground 60s linear infinite;
   z-index: 2;
 }
 
 .cenario5 .layer3 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20EUA.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20EUA.png");
   animation: moveBackground 45s linear infinite;
   z-index: 3;
 }
 .cenario5 .layer4 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/3%20-EUA.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/3%20-EUA.png");
   animation: moveBackground 28s linear infinite;
   z-index: 4;
 }
 .cenario5 .layer5 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/4%20-%20EUA.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/4%20-%20EUA.png");
   z-index: 5;
 }
 .cenario5 .layer6 {
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png');
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
   animation: moveBackground 5s linear infinite;
   z-index: 6;
 }
@@ -199,28 +199,29 @@ body {
 /* Animação do movimento horizontal das camadas (aplica-se às layers que têm animation) */
 @keyframes moveBackground {
   from { background-position-x: 0; }
-  to   { background-position-x: -2000px; } /* ajustar conforme necessidade */
+  /* Usando a unidade vw (viewport width) para que o deslocamento seja relativo ao tamanho da tela */
+  to   { background-position-x: -100vw; } 
 }
 
 /* personagem e obstáculo */
 .robson {
-  width: 150px;
-  height: 150px;
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/pixilart-drawing.png');
+  width: 27%;
+  height: 27%;
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/pixilart-drawing.png");
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
-  bottom: 0;
+  bottom: 17%;
   left: 50px;
   z-index: 10;
 }
 
 .obstacle {
-  width: 45px;
-  height: 80px;
+  width: 8%;
+  height: 15%;
   background-color: gray;
   position: absolute;
-  bottom: 0;
+  bottom: 17%;
   left: 120%;
   z-index: 10;
 }
