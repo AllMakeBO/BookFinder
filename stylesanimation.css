@@ -248,7 +248,7 @@ body {
 /* Botões */
 .inicio, .inicio1 {
     position: absolute;
-    bottom: 50px;
+    bottom: 10%;
     padding: 15px 30px;
     font-size: 1.2em;
     background-color: #007bff;
