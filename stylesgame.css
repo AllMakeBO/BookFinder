@@ -38,12 +38,26 @@ body {
   overflow: hidden;
 }
 
+/* contador de coletáveis */
+#scoreDisplay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-size: 1.2em;
+  z-index: 100;
+}
+
 /* camadas base */
 .background {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%; /* Voltando para 100% */
+  width: 100%;
   height: 100%;
   background-repeat: repeat-x;
   background-size: auto 100%;
@@ -85,7 +99,7 @@ body {
 }
 .cenario1 .layer4 {
   background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
-  animation: moveBackground 5s linear infinite;
+  animation: moveBackground 2s linear infinite;
   z-index: 4;
 }
 
@@ -108,7 +122,7 @@ body {
 }
 .cenario2 .layer4 {
   background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
-  animation: moveBackground 5s linear infinite;
+  animation: moveBackground 2s linear infinite;
   z-index: 4;
 }
 
@@ -126,12 +140,12 @@ body {
 .cenario3 .layer3 {
   background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20China.png");
   animation: none;
-  bottom: -10px;  
+  bottom: -10px;
   z-index: 3;
 }
 .cenario3 .layer4 {
   background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
-  animation: moveBackground 5s linear infinite;
+  animation: moveBackground 2s linear infinite;
   z-index: 4;
 }
 
@@ -159,7 +173,7 @@ body {
 }
 .cenario4 .layer5 {
   background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
-  animation: moveBackground 5s linear infinite;
+  animation: moveBackground 2s linear infinite;
   z-index: 5;
 }
 
@@ -192,7 +206,7 @@ body {
 }
 .cenario5 .layer6 {
   background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
-  animation: moveBackground 5s linear infinite;
+  animation: moveBackground 2s linear infinite;
   z-index: 6;
 }
 
@@ -200,7 +214,7 @@ body {
 @keyframes moveBackground {
   from { background-position-x: 0; }
   /* Usando a unidade vw (viewport width) para que o deslocamento seja relativo ao tamanho da tela */
-  to   { background-position-x: -100vw; } 
+  to   { background-position-x: -100vw; }
 }
 
 /* personagem e obstáculo */
@@ -218,13 +232,30 @@ body {
 
 .obstacle {
   width: 8%;
-  height: 15%;
+  height: 10%;
   background-color: gray;
   position: absolute;
   bottom: 17%;
   left: 120%;
   z-index: 10;
 }
+
+/* ESPAÇO DEDICADO PARA O COLETÁVEL */
+.collectible {
+  /* Estilo padrão do coletável */
+  width: 8%;
+  height: 15%;
+  background-color: yellow; /* Cor temporária, substitua pela imagem */
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/book_icon.png"); /* Exemplo de imagem de livro */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 30%; /* Posição um pouco mais alta que o obstáculo */
+  left: 120%;
+  z-index: 10;
+  transition: opacity 0.2s ease-out; /* Para um efeito de desaparecimento suave */
+}
+/* FIM DO ESPAÇO DEDICADO PARA O COLETÁVEL */
 
 /* quando quiser pausar via classe */
 .game.paused .background {
