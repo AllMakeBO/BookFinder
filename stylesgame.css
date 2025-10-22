@@ -251,7 +251,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
-  bottom: 30%; /* Posição um pouco mais alta que o obstáculo */
+  bottom: 50%; /* Posição um pouco mais alta que o obstáculo */
   left: 120%;
   z-index: 10;
   transition: opacity 0.2s ease-out; /* Para um efeito de desaparecimento suave */
