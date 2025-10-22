@@ -219,9 +219,9 @@ body {
 
 /* personagem e obstáculo */
 .robson {
-  width: 27%;
-  height: 27%;
-  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/pixilart-drawing.png");
+  width: 18%;
+  height: 25%;
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Robson%20Definitive.png");
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
@@ -244,8 +244,9 @@ body {
 .collectible {
   /* Estilo padrão do coletável */
   width: 8%;
-  height: 15%;
-  background-color: yellow; /* Cor temporária, substitua pela imagem */
+  height: 8%;
+  background-color: red; /* Cor temporária, substitua pela imagem */
+  border-radius: 100%;
   background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/book_icon.png"); /* Exemplo de imagem de livro */
   background-size: contain;
   background-repeat: no-repeat;
