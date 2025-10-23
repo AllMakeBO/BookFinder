@@ -443,7 +443,7 @@ const curiosidades = [
 "O Mundo Se Despedaça - (1958) - O título é uma citação do poema *The Second Coming*, de W. B. Yeats.",
 "O Mundo Se Despedaça - (1958) - O autor, Chinua Achebe, escreveu o livro como uma resposta aos retratos ocidentais estereotipados da África.",
 "O Mundo Se Despedaça - (1958) - O livro foi traduzido para mais de 50 idiomas.",
-"O Mundo Se Despedaça - (1958) - O romance narra a vida de Okonkwo, um guerreiro Igbo, e o impacto da chegada dos missionários cristãos e do governo colonial."
+"O Mundo Se Despedaça - (1958) - O romance narra a vida de Okonkwo, um guerreiro Igbo, e o impacto da chegada dos missionários cristãos e do governo colonial.",
 "Harry Potter (Série) - (1997) - J.K. Rowling concebeu a ideia da série durante um atraso de trem em 1990.",
 "Harry Potter (Série) - (1997) - O lema de Hogwarts é 'Draco Dormiens Nunquam Titillandus', que significa 'Nunca cutuque um dragão adormecido'.",
 "Harry Potter (Série) - (1997) - A autora e o protagonista, Harry Potter, compartilham a mesma data de aniversário: 31 de julho.",
