@@ -333,7 +333,7 @@ const curiosidades = [
 "O Alquimista - (1988) - O livro foi inspirado na jornada pessoal do autor em busca de seu propósito.",
 "O Alquimista - (1988) - A primeira edição vendeu pouquíssimas cópias e a editora decidiu não reimprimir.",
 "O Alquimista - (1988) - Madonna foi uma das primeiras celebridades a endossar publicamente o livro.",
-"O Alquimista - (1988) - O livro detém o recorde do Guinness de livro mais traduzido de um autor vivo.",'''
+"O Alquimista - (1988) - O livro detém o recorde do Guinness de livro mais traduzido de um autor vivo.",
 "O Apanhador no Campo de Centeio - (1951) - O livro foi associado ao assassinato de John Lennon, pois o assassino, Mark David Chapman, o carregava no momento.",
 "O Apanhador no Campo de Centeio - (1951) - O autor, J. D. Salinger, era extremamente recluso e proibiu qualquer adaptação cinematográfica da obra.",
 "O Apanhador no Campo de Centeio - (1951) - O livro foi rejeitado por várias editoras antes de ser publicado.",
