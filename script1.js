@@ -9,7 +9,7 @@ let isJumping = false;
 let position = 0;
 let gameStarted = false;
 let lastTime = 0;
-let obstacleSpeed = 500; // Velocidade base em pixels/segundo, agora será ajustada para ser relativa
+let obstacleSpeed = 450; // Velocidade base em pixels/segundo, agora será ajustada para ser relativa
 let collectibleSpeed = obstacleSpeed * 0.8; // Coletável um pouco mais lento que o obstáculo
 let score = 0;
 let obstacleVisible = false; // Controla se o obstáculo está visível/ativo
@@ -246,6 +246,7 @@ function trocarCenarioAleatorio() {
   cenarios.forEach(c => c.classList.remove('active'));
   const indice = Math.floor(Math.random() * cenarios.length);
   cenarios[indice].classList.add('active');
+  obstacleSpeed = obstacleSpeed + 100;  
 }
 
 // inicia o jogo ao clicar no botão
