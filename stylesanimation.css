@@ -106,7 +106,7 @@ body {
     background-color: #88f;
     border-radius: 50%;
     position: absolute;
-    top: -30%; /* Posiciona a cúpula acima do corpo principal */
+    top: -30%; /* Posiciona a cú***** acima do corpo principal */
     left: 15%;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
     display: flex;
@@ -259,14 +259,14 @@ body {
 }
 
 .inicio {
-    left: 40%;
+    left: 5%;
     transform: translateX(-50%);
     opacity: 0;
     animation: button-fade-in 1s forwards 15s;
 }
 
 .inicio1 {
-    left: 60%;
+    right: 5%;
     transform: translateX(-50%);
     opacity: 1; /* Visível desde o início */
     animation: none; /* Remove a animação de fade-in */
