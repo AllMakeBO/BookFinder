@@ -29,8 +29,8 @@ function jump() {
   const altura = gameDiv.clientHeight;
   const jumpHeight = altura * 0.25;
   // O passo do pulo agora é proporcional à altura do jogo, garantindo velocidade consistente
-  const jumpStep = jumpHeight / 10; // Ex: Se jumpHeight for 200px, o passo é 20px
-  const intervalTime = 30;
+  const jumpStep = jumpHeight / 30; // Ex: Se jumpHeight for 200px, o passo é 20px
+  const intervalTime = 9;
 
   let upInterval = setInterval(() => {
     if (position >= jumpHeight) {
