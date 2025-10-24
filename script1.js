@@ -20,6 +20,13 @@ function getGameWidth() {
     return gameDiv.clientWidth;
 }
 
+const obstacleDesign = [
+    'url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Rock.png")', // Obstáculo: Pedras
+    'url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Bricks.png")', // Obstáculo: Tijolo
+    'url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Cone.png")', // Obstáculo: Cone
+    'url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Box.png")', // Obstáculo: Caixa
+];
+
 // Função de pulo
 function jump() {
   if (!gameStarted) return;
@@ -252,7 +259,10 @@ function trocarCenarioAleatorio() {
   cenarios.forEach(c => c.classList.remove('active'));
   const indice = Math.floor(Math.random() * cenarios.length);
   cenarios[indice].classList.add('active');
-  obstacleSpeed = obstacleSpeed + 100;  
+  obstacleSpeed = obstacleSpeed + 100;
+  
+  const obstacleRandom = obstacleDesign[Math.floor(Math.random() * obstacleDesign.length)];
+  obstacle.style.backgroundImage = obstacleRandom;
 }
 
 // inicia o jogo ao clicar no botão
@@ -381,7 +391,7 @@ const curiosidades = [
 "Meu Filho, Meu Tesouro - (1946) - O livro foi traduzido para mais de 40 idiomas.",
 "Anne of Green Gables - (1908) - A autora, Lucy Maud Montgomery, baseou a fictícia Avonlea em sua cidade natal, na Ilha do Príncipe Eduardo, Canadá.",
 "Anne of Green Gables - (1908) - O livro foi um sucesso de vendas imediato, com seis reedições no primeiro ano.",
-"Anne of Green Gables - (1908) - A história é extremamente popular no Japão, onde é vista como um conto sobre a importância da individualidade e da natureza.",
+"Anne of Green Gables - (1908) - A história é extremamente popular no *****ão, onde é vista como um conto sobre a importância da individualidade e da natureza.",
 "Anne of Green Gables - (1908) - O primeiro nome da protagonista, Anne, é escrito com um 'e' no final, para distingui-la de outras Anns.",
 "Anne of Green Gables - (1908) - A autora considerou que a história era muito 'simples' e a enviou para várias editoras antes de ser aceita.",
 "Beleza Negra - (1877) - O livro é narrado por um cavalo, o que era incomum para a época.",
@@ -476,7 +486,7 @@ const curiosidades = [
 "Meu Filho, Meu Tesouro - (1946) - O livro foi traduzido para mais de 40 idiomas.",
 "Anne of Green Gables - (1908) - A autora, Lucy Maud Montgomery, baseou a fictícia Avonlea em sua cidade natal, na Ilha do Príncipe Eduardo, Canadá.",
 "Anne of Green Gables - (1908) - O livro foi um sucesso de vendas imediato, com seis reedições no primeiro ano.",
-"Anne of Green Gables - (1908) - A história é extremamente popular no Japão, onde é vista como um conto sobre a importância da individualidade e da natureza.",
+"Anne of Green Gables - (1908) - A história é extremamente popular no *****ão, onde é vista como um conto sobre a importância da individualidade e da natureza.",
 "Anne of Green Gables - (1908) - O primeiro nome da protagonista, Anne, é escrito com um 'e' no final, para distingui-la de outras Anns.",
 "Anne of Green Gables - (1908) - A autora considerou que a história era muito 'simples' e a enviou para várias editoras antes de ser aceita.",
 "Beleza Negra - (1877) - O livro é narrado por um cavalo, o que era incomum para a época.",
