@@ -95,6 +95,7 @@ body {
 .cenario1 .layer3 {
   background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20Paris.png");
   animation: moveBackground 28s linear infinite;
+  bottom: -2%;
   z-index: 3;
 }
 .cenario1 .layer4 {
@@ -231,9 +232,11 @@ body {
 }
 
 .obstacle {
-  width: 8%;
+  width: 14%;
   height: 10%;
-  background-color: gray;
+  background-image: none;
+  background-size: cover;
+  background-repeat: no-repeat;
   position: absolute;
   bottom: 17%;
   left: 120%;
