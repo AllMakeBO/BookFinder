@@ -11,7 +11,7 @@ body {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to bottom, #000000, #1a0033, #330066);
+    background: linear-gradient(to bottom, black, #09083b 50%, #18166b);
     overflow: hidden;
 }
 
@@ -86,7 +86,7 @@ body {
     transform: translateX(-50%) rotate(20deg); /* Inclinação inicial */
     width: 120px;
     height: 60px;
-    animation: spaceship-descent 8s forwards, spaceship-wobble 0.5s infinite alternate 8s;
+    animation: spaceship-descent 5s forwards, spaceship-wobble 0.5s infinite alternate 5s;
     opacity: 0;
     z-index: 10;
 }
@@ -94,7 +94,7 @@ body {
 .ship-body {
     width: 100%;
     height: 100%;
-    background-color: #ccc;
+    background-color: #434352;
     border-radius: 50%;
     position: relative;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
@@ -103,41 +103,15 @@ body {
 .ship-dome {
     width: 70%;
     height: 70%;
-    background-color: #88f;
+    background-color: #acacbd;
     border-radius: 50%;
     position: absolute;
     top: -30%; /* Posiciona a cú***** acima do corpo principal */
     left: 15%;
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden; /* Garante que o alienígena não vaze */
-}
-
-.alien {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    background-color: transparent; /* Cor de fundo transparente para o alienígena */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px; /* Tamanho da fonte para o rosto */
-    line-height: 1; /* Ajuste da linha para o rosto */
-    color: #000; /* Cor do rosto */
-    transform: translateY(5px); /* Ajuste vertical para posicionamento */
-}
-
-.alien::before {
-    content: 'o_o'; /* O rosto pixelado */
-    position: absolute;
-    color: black; /* Alien preto */
-}
-
-.alien-eyes {
-    /* Não é mais necessário, mas mantido para evitar erros no HTML */
-    display: none;
 }
 
 .ship-light {
@@ -180,7 +154,7 @@ body {
     background: radial-gradient(circle, rgba(255, 165, 0, 0.8) 0%, rgba(255, 165, 0, 0) 70%);
     border-radius: 50%;
     opacity: 0;
-    animation: impact-fade 1s forwards 8s;
+    animation: impact-fade 1s forwards 4s;
 }
 
 @keyframes impact-fade {
@@ -229,7 +203,7 @@ body {
     text-align: center;
     font-size: 1.5em;
     opacity: 0;
-    animation: text-fade-in 2s forwards 10s;
+    animation: text-fade-in 2s forwards 6s;
     width: 80%;
     max-width: 600px;
     line-height: 1.6;
@@ -247,22 +221,21 @@ body {
 
 /* Botões */
 .inicio, .inicio1 {
-    position: absolute;
-    bottom: 10%;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  position: absolute;
+  bottom: 10%;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  background-color: #7ea189;
+  border: solid black;
+  border-width: 5px;
+  border-radius: 30px;
 }
 
 .inicio {
     left: 5%;
     transform: translateX(-50%);
     opacity: 0;
-    animation: button-fade-in 1s forwards 15s;
+    animation: button-fade-in 1s forwards 8s;
 }
 
 .inicio1 {
