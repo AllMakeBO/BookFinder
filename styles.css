@@ -1,28 +1,38 @@
-h1{
-  font-size: clamp(50px, 10vw, 500px);
-  text-align: center;
+body {
+    margin: 0;
+    overflow: hidden;
 }
 
-body {
-  margin: 0;  
-  background-image: url('https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/panoramic_landmarks_no_alien.png'); /* Substitua pelo caminho da sua imagem */
-  background-size: cover; /* Redimensiona a imagem para cobrir toda a tela */
-  background-repeat: no-repeat; /* Evita que a imagem se repita */
-  background-position: center center; /* Centraliza a imagem */
-  background-attachment: fixed; /* Impede que a imagem role com o conteúdo */
+.title{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.title h1{
+  text-align: center;
+  color: white;
+  font-size: clamp(50px, 10vw, 100px);
 }
 
 #playbutton{
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: clamp(150px, 20vw, 200px);
   height: clamp(75px, 10vw, 100px);
-  margin: auto;
+  z-index: 10;
+  text-align: center;
+  
 }
 
 #playbutton button{
   background: #7ea189;
-  font-size: clamp(40px, 10vw, 50px);
-  width: clamp(150px, 20vw, 200px);
-  height: clamp(75px, 10vw, 100px);
+  font-size: clamp(40px, 10vw, 50px);;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   border-width: 5px;
   border-radius: 30px;
@@ -37,6 +47,181 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Tela */
+.tela {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.space{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, black, #09083b 50%, #18166b);
+}
+
+/* Estrelas */
+.stars {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    animation: move-stars 2s linear infinite;
+}
+
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 8s infinite ease-in-out alternate;
+}
+
+/* Tamanhos e posições aleatórias para as estrelas */
+.star:nth-child(1) { top: 10%; left: 20%; width: 2px; height: 2px; animation-delay: 0s; }
+.star:nth-child(2) { top: 50%; left: 70%; width: 3px; height: 3px; animation-delay: 1s; }
+.star:nth-child(3) { top: 80%; left: 40%; width: 1px; height: 1px; animation-delay: 2s; }
+.star:nth-child(4) { top: 30%; left: 90%; width: 2px; height: 2px; animation-delay: 3s; }
+.star:nth-child(5) { top: 60%; left: 10%; width: 3px; height: 3px; animation-delay: 4s; }
+.star:nth-child(6) { top: 20%; left: 50%; width: 1px; height: 1px; animation-delay: 0.5s; }
+.star:nth-child(7) { top: 70%; left: 25%; width: 2px; height: 2px; animation-delay: 1.5s; }
+.star:nth-child(8) { top: 40%; left: 80%; width: 3px; height: 3px; animation-delay: 2.5s; }
+.star:nth-child(9) { top: 15%; left: 60%; width: 2px; height: 2px; animation-delay: 0.2s; }
+.star:nth-child(10) { top: 25%; left: 10%; width: 1px; height: 1px; animation-delay: 1.2s; }
+.star:nth-child(11) { top: 35%; left: 80%; width: 3px; height: 3px; animation-delay: 2.1s; }
+.star:nth-child(12) { top: 45%; left: 30%; width: 2px; height: 2px; animation-delay: 3.1s; }
+.star:nth-child(13) { top: 55%; left: 90%; width: 3px; height: 3px; animation-delay: 4.3s; }
+.star:nth-child(14) { top: 65%; left: 15%; width: 1px; height: 1px; animation-delay: 0.7s; }
+.star:nth-child(15) { top: 75%; left: 50%; width: 2px; height: 2px; animation-delay: 1.7s; }
+.star:nth-child(16) { top: 85%; left: 70%; width: 3px; height: 3px; animation-delay: 2.9s; }
+.star:nth-child(17) { top: 5%; left: 40%; width: 2px; height: 2px; animation-delay: 3.7s; }
+.star:nth-child(18) { top: 50%; left: 90%; width: 3px; height: 3px; animation-delay: 4.8s; }
+.star:nth-child(19) { top: 60%; left: 25%; width: 1px; height: 1px; animation-delay: 0.4s; }
+.star:nth-child(20) { top: 70%; left: 65%; width: 2px; height: 2px; animation-delay: 1.1s; }
+.star:nth-child(21) { top: 10%; left: 75%; width: 3px; height: 3px; animation-delay: 2.4s; }
+.star:nth-child(22) { top: 20%; left: 5%; width: 2px; height: 2px; animation-delay: 3.5s; }
+.star:nth-child(23) { top: 30%; left: 60%; width: 1px; height: 1px; animation-delay: 4.6s; }
+.star:nth-child(24) { top: 40%; left: 45%; width: 3px; height: 3px; animation-delay: 0.8s; }
+.star:nth-child(25) { top: 50%; left: 85%; width: 2px; height: 2px; animation-delay: 1.8s; }
+.star:nth-child(26) { top: 60%; left: 35%; width: 3px; height: 3px; animation-delay: 2.8s; }
+.star:nth-child(27) { top: 70%; left: 55%; width: 1px; height: 1px; animation-delay: 3.8s; }
+.star:nth-child(28) { top: 80%; left: 95%; width: 2px; height: 2px; animation-delay: 4.9s; }
+.star:nth-child(29) { top: 90%; left: 10%; width: 3px; height: 3px; animation-delay: 0.9s; }
+.star:nth-child(30) { top: 15%; left: 50%; width: 2px; height: 2px; animation-delay: 1.5s; }
+.star:nth-child(31) { top: 25%; left: 80%; width: 1px; height: 1px; animation-delay: 2.3s; }
+.star:nth-child(32) { top: 35%; left: 20%; width: 3px; height: 3px; animation-delay: 3.2s; }
+.star:nth-child(33) { top: 45%; left: 60%; width: 2px; height: 2px; animation-delay: 4.2s; }
+.star:nth-child(34) { top: 55%; left: 40%; width: 3px; height: 3px; animation-delay: 0.3s; }
+.star:nth-child(35) { top: 65%; left: 30%; width: 1px; height: 1px; animation-delay: 1.3s; }
+.star:nth-child(36) { top: 75%; left: 90%; width: 2px; height: 2px; animation-delay: 2.5s; }
+.star:nth-child(37) { top: 85%; left: 45%; width: 3px; height: 3px; animation-delay: 3.5s; }
+.star:nth-child(38) { top: 95%; left: 70%; width: 1px; height: 1px; animation-delay: 4.5s; }
+.star:nth-child(39) { top: 5%; left: 5%; width: 2px; height: 2px; animation-delay: 0.1s; }
+.star:nth-child(40) { top: 95%; left: 95%; width: 3px; height: 3px; animation-delay: 1.9s; }
+
+
+@keyframes twinkle {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.5); }
+}
+
+@keyframes move-stars {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+/* Nave espacial */
+.spaceship {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30vw;
+  height: 15vw;
+  z-index: 10;
+  animation: voo 2s ease-in-out infinite alternate;
+}
+
+.spaceship::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 110%;
+  transform: translateY(-50%);
+  width: 30vw;
+  height: 12vw;
+  border-radius: 50%;
+  background: radial-gradient(circle at right, rgba(37, 164, 179, 1), rgba(101, 189, 199, 0.3), rgba(255, 0, 0, 0));
+  filter: blur(6px);
+  z-index: 10;
+  animation: propulsao 0.4s ease-in-out infinite alternate;
+}
+
+.ship-body {
+    width: 100%;
+    height: 100%;
+    background-color: #434352;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.ship-dome {
+    width: 70%;
+    height: 70%;
+    background-color: #acacbd;
+    border-radius: 50%;
+    position: absolute;
+    top: -30%; /* Posiciona a cú***** acima do corpo principal */
+    left: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Garante que o alienígena não vaze */
+}
+
+.ship-light {
+    position: absolute;
+    bottom: -10px;
+    left: 30%;
+    width: 40%;
+    height: 20px;
+    background: radial-gradient(circle, rgba(255, 255, 0, 0.8) 0%, rgba(255, 255, 0, 0) 70%);
+    border-radius: 50%;
+    transform: rotate(180deg);
+    animation: ship-light-pulse 1s infinite alternate;
+}
+
+@keyframes voo {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(-40%);
+  }
+}
+
+@keyframes propulsao {
+  0% {
+    transform: translateY(-50%) scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%) scaleX(1.6);
+    opacity: 0.7;
+  }
+}
+
+@keyframes ship-light-pulse {
+    0% { transform: rotate(180deg) scale(1); opacity: 1; }
+    100% { transform: rotate(180deg) scale(1.2); opacity: 0.8; }
+}
+
 .footer{
   background: #7ea189;
   border-top-left-radius: 10px;
@@ -45,4 +230,3 @@ body {
   position: fixed;
   bottom: 0%;
 }
-
