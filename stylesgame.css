@@ -1,7 +1,12 @@
 /* layout básico */
+
+#main {
+  display: none; /* começa invisível */
+}
+
 body {
   margin: 0;
-  background: black;
+  background: linear-gradient(to bottom, black, #09083b 50%, #18166b);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,14 +226,33 @@ body {
 /* personagem e obstáculo */
 .robson {
   width: 18%;
-  height: 25%;
-  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Robson%20Definitive.png");
-  background-size: cover;
+  height: 22%;
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/RobsonRunningv1.png");
+  background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
   bottom: 17%;
   left: 50px;
   z-index: 10;
+  animation: walking 1.2s infinite; 
+}
+
+@keyframes walking {
+  0% {
+    transform: scaleX(1) scaleY(0.98);
+  }
+  25%{
+    transform: scaleX(1) scaleY(1.02);
+  }
+  50%{
+    transform: scaleX(1) scaleY(0.98);
+  }
+  75%{
+    transform: scaleX(1) scaleY(1.02);
+  }
+  100%{
+    transform: scaleX(1) scaleY(0.98) translateY(0px);
+  }
 }
 
 .obstacle {
