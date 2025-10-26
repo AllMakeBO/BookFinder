@@ -2,6 +2,7 @@ const robson = document.querySelector('.robson');
 const obstacle = document.querySelector('.obstacle');
 const collectible = document.querySelector('.collectible'); // Novo coletável
 const startBtn = document.getElementById('startBtn');
+const main = document.getElementById('main');
 const gameDiv = document.querySelector('.game');
 const scoreDisplay = document.getElementById('scoreDisplay');
 
@@ -259,7 +260,7 @@ function trocarCenarioAleatorio() {
   cenarios.forEach(c => c.classList.remove('active'));
   const indice = Math.floor(Math.random() * cenarios.length);
   cenarios[indice].classList.add('active');
-  obstacleSpeed = obstacleSpeed + 100;
+  obstacleSpeed = obstacleSpeed + 80;
   
   const obstacleRandom = obstacleDesign[Math.floor(Math.random() * obstacleDesign.length)];
   obstacle.style.backgroundImage = obstacleRandom;
@@ -270,6 +271,7 @@ startBtn.addEventListener('click', () => {
   if (!gameStarted) {
     gameStarted = true;
     startBtn.style.display = 'none';
+    main.style.display = 'block';
     trocarCenarioAleatorio();
     document.querySelectorAll('.background').forEach(bg => {
       bg.style.animationPlayState = 'running';
