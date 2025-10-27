@@ -229,6 +229,7 @@ body {
   border: solid black;
   border-width: 5px;
   border-radius: 30px;
+  cursor: pointer;
 }
 
 .inicio {
