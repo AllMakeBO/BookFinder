@@ -56,10 +56,10 @@ function jump() {
   }
 
   const altura = gameDiv.clientHeight;
-  const jumpHeight = altura * 0.30;
+  const jumpHeight = altura * 0.40;
   // O passo do pulo agora é proporcional à altura do jogo, garantindo velocidade consistente
   const jumpStep = jumpHeight / 30; // Ex: Se jumpHeight for 200px, o passo é 20px
-  const intervalTime = 9;
+  const intervalTime = 11;
 
   let upInterval = setInterval(() => {
     if (position >= jumpHeight) {
@@ -328,6 +328,8 @@ function trocarCenarioAleatorio() {
   
   const obstacleRandom = obstacleDesign[Math.floor(Math.random() * obstacleDesign.length)];
   obstacle.style.backgroundImage = obstacleRandom;
+  
+  obstacleSpeed = obstacleSpeed + 100
 }
 
 // inicia o jogo ao clicar no botão
@@ -581,5 +583,5 @@ const curiosidades = [
 
 function mostrarCuriosidade() {
     const curiosidade = curiosidades[Math.floor(Math.random() * curiosidades.length)];
-    alert(`Curiosidade Literária: ${curiosidade}`);
+    alert(`Parabéns, você desbloqueou uma das 200 curiosidades literárias 👍: ${curiosidade}`);
 }
