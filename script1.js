@@ -9,7 +9,7 @@ const scoreDisplay = document.getElementById('scoreDisplay');
 // o som pode estar sendo bloqueado por políticas de autoplay ou CORS.
 const jumpSound = new Audio('https://www.myinstants.com/media/sounds/jump.mp3'); 
 // Som de coleta de item (moeda do Mario)
-const collectSound = new Audio('smb_coin.mp3');
+const collectSound = new Audio('Book.mp3');
 // Som de Game Over
 const gameOverSound = new Audio('GameOver - Definitive.mp3');
 
@@ -585,5 +585,6 @@ function mostrarCuriosidade() {
     const curiosidade = curiosidades[Math.floor(Math.random() * curiosidades.length)];
     alert(`Parabéns, você desbloqueou uma das 200 curiosidades literárias 👍: ${curiosidade}`);
 }
+
 
 
