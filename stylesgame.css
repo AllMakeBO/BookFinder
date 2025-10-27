@@ -1,253 +1,299 @@
-/* Estilos gerais */
+/* layout básico */
+
+#main {
+  display: none; /* começa invisível */
+}
+
 body {
-    margin: 0;
-    overflow: hidden;
-    background-color: #000;
-    font-family: sans-serif; /* Usando fonte normal */
-    color: #fff;
+  margin: 0;
+  background: linear-gradient(to bottom, black, #09083b 50%, #18166b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.space-scene {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(to bottom, black, #09083b 50%, #18166b);
-    overflow: hidden;
-}
-
-/* Estrelas */
-.stars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.star {
-    position: absolute;
-    background-color: #fff;
-    border-radius: 50%;
-    opacity: 0;
-    animation: twinkle 5s infinite ease-in-out alternate;
-}
-
-/* Tamanhos e posições aleatórias para as estrelas */
-.star:nth-child(1) { top: 10%; left: 20%; width: 2px; height: 2px; animation-delay: 0s; }
-.star:nth-child(2) { top: 50%; left: 70%; width: 3px; height: 3px; animation-delay: 1s; }
-.star:nth-child(3) { top: 80%; left: 40%; width: 1px; height: 1px; animation-delay: 2s; }
-.star:nth-child(4) { top: 30%; left: 90%; width: 2px; height: 2px; animation-delay: 3s; }
-.star:nth-child(5) { top: 60%; left: 10%; width: 3px; height: 3px; animation-delay: 4s; }
-.star:nth-child(6) { top: 20%; left: 50%; width: 1px; height: 1px; animation-delay: 0.5s; }
-.star:nth-child(7) { top: 70%; left: 25%; width: 2px; height: 2px; animation-delay: 1.5s; }
-.star:nth-child(8) { top: 40%; left: 80%; width: 3px; height: 3px; animation-delay: 2.5s; }
-
-@keyframes twinkle {
-    0% { opacity: 0; transform: scale(0.5); }
-    50% { opacity: 1; transform: scale(1); }
-    100% { opacity: 0; transform: scale(0.5); }
-}
-
-/* Terra */
-.earth {
-    position: absolute;
-    bottom: -200px; /* Começa fora da tela */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
-    background: 
-        /* Continentes (camadas de gradientes para simular formas) */
-        radial-gradient(circle at 70% 30%, #4CAF50 15%, transparent 15%) 0 0,
-        radial-gradient(circle at 30% 70%, #4CAF50 18%, transparent 18%) 0 0,
-        radial-gradient(circle at 50% 50%, #4CAF50 10%, transparent 10%) 0 0,
-        radial-gradient(circle at 85% 55%, #4CAF50 12%, transparent 12%) 0 0,
-        radial-gradient(circle at 15% 45%, #4CAF50 13%, transparent 13%) 0 0,
-        radial-gradient(circle at 40% 20%, #4CAF50 8%, transparent 8%) 0 0,
-        radial-gradient(circle at 60% 80%, #4CAF50 9%, transparent 9%) 0 0,
-        /* Oceano */
-        radial-gradient(circle at 50% 50%, #2196F3 70%, #0D47A1 100%);
-    background-size: 100% 100%; /* Ajusta o tamanho dos gradientes para cobrir a área */
-    background-repeat: no-repeat;
-    border-radius: 50%;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 100, 255, 0.5);
-    animation: earth-approach 10s forwards;
-}
-
-@keyframes earth-approach {
-    0% { bottom: -200px; opacity: 0; }
-    50% { bottom: 0px; opacity: 1; }
-    100% { bottom: 0px; opacity: 1; }
-}
-
-/* Nave espacial */
-.spaceship {
-    position: absolute;
-    top: -100px; /* Começa fora da tela */
-    left: 50%;
-    transform: translateX(-50%) rotate(20deg); /* Inclinação inicial */
-    width: 120px;
-    height: 60px;
-    animation: spaceship-descent 5s forwards, spaceship-wobble 0.5s infinite alternate 5s;
-    opacity: 0;
-    z-index: 10;
-}
-
-.ship-body {
-    width: 100%;
-    height: 100%;
-    background-color: #434352;
-    border-radius: 50%;
-    position: relative;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.ship-dome {
-    width: 70%;
-    height: 70%;
-    background-color: #acacbd;
-    border-radius: 50%;
-    position: absolute;
-    top: -30%; /* Posiciona a cú***** acima do corpo principal */
-    left: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Garante que o alienígena não vaze */
-}
-
-.ship-light {
-    position: absolute;
-    bottom: -10px;
-    left: 30%;
-    width: 40%;
-    height: 20px;
-    background: radial-gradient(circle, rgba(255, 255, 0, 0.8) 0%, rgba(255, 255, 0, 0) 70%);
-    border-radius: 50%;
-    transform: rotate(180deg);
-    animation: ship-light-pulse 1s infinite alternate;
-}
-
-@keyframes spaceship-descent {
-    0% { top: -100px; opacity: 0; transform: translateX(-50%) rotate(20deg); }
-    20% { opacity: 1; }
-    80% { top: 60%; transform: translateX(-50%) rotate(-5deg); }
-    100% { top: 70%; transform: translateX(-50%) rotate(0deg); }
-}
-
-@keyframes spaceship-wobble {
-    0% { transform: translateX(-50%) rotate(0deg); }
-    100% { transform: translateX(-50%) rotate(2deg); }
-}
-
-@keyframes ship-light-pulse {
-    0% { transform: rotate(180deg) scale(1); opacity: 1; }
-    100% { transform: rotate(180deg) scale(1.2); opacity: 0.8; }
-}
-
-/* Efeitos de impacto */
-.impact-effect {
-    position: absolute;
-    top: 70%; /* Posição de impacto da nave */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, rgba(255, 165, 0, 0.8) 0%, rgba(255, 165, 0, 0) 70%);
-    border-radius: 50%;
-    opacity: 0;
-    animation: impact-fade 1s forwards 4s;
-}
-
-@keyframes impact-fade {
-    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
-}
-
-/* Partículas de poeira */
-.dust-particle {
-    position: absolute;
-    background-color: #8B4513; /* Cor de terra */
-    border-radius: 50%;
-    opacity: 0;
-    animation: dust-spread 2s forwards 8.5s;
-}
-
-.dust-particle:nth-child(1) { top: 75%; left: 45%; width: 5px; height: 5px; }
-.dust-particle:nth-child(2) { top: 70%; left: 55%; width: 8px; height: 8px; }
-.dust-particle:nth-child(3) { top: 80%; left: 48%; width: 6px; height: 6px; }
-.dust-particle:nth-child(4) { top: 72%; left: 52%; width: 7px; height: 7px; }
-
-@keyframes dust-spread {
-    0% { opacity: 0; transform: translate(0, 0); }
-    20% { opacity: 1; }
-    100% { opacity: 0; transform: translate(calc((var(--random-x) - 0.5) * 200px), calc((var(--random-y) - 0.5) * 200px)) scale(0); }
-}
-
-/* Animação para os olhos do alienígena (perda de memória) */
-@keyframes alien-memory-loss {
-    0% { color: #000; }
-    50% { color: #f00; }
-    100% { color: #000; }
-}
-
-.alien.memory-loss::before {
-    animation: alien-memory-loss 1s infinite alternate;
-}
-
-/* Texto da história */
-.story-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-size: 1.5em;
-    opacity: 0;
-    animation: text-fade-in 2s forwards 6s;
-    width: 80%;
-    max-width: 600px;
-    line-height: 1.6;
-}
-
-.story-text h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-@keyframes text-fade-in {
-    0% { opacity: 0; transform: translate(-50%, -40%); }
-    100% { opacity: 1; transform: translate(-50%, -50%); }
-}
-
-/* Botões */
-.inicio, .inicio1 {
+#startBtn {
   position: absolute;
-  bottom: 10%;
-  padding: 15px 30px;
-  font-size: 1.2em;
-  background-color: #7ea189;
-  border: solid black;
-  border-width: 5px;
-  border-radius: 30px;
+  width: 150px;
+  height: 48px;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #7ea189;
+  color: black;
+  border: solid black 1px;
+  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
+  padding: 8px 12px;
+  z-index: 100;
 }
 
-.inicio {
-    left: 5%;
-    transform: translateX(-50%);
-    opacity: 0;
-    animation: button-fade-in 1s forwards 8s;
+/* área do jogo */
+.game {
+  margin-bottom: 100px;
+  margin-top: 100px;
+  width: clamp(300px, 70vw, 800px);
+  height: clamp(300px, 70vw, 800px);
+  background-color: lightblue;
+  border: 2px solid #333;
+  position: relative;
+  overflow: hidden;
 }
 
-.inicio1 {
-    right: 5%;
-    transform: translateX(-50%);
-    opacity: 1; /* Visível desde o início */
-    animation: none; /* Remove a animação de fade-in */
+/* contador de coletáveis */
+#scoreDisplay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-size: 1.2em;
+  z-index: 100;
 }
 
-@keyframes button-fade-in {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+/* camadas base */
+.background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  z-index: 0;
+  /* pausa por padrão; só rodará quando o jogo começar */
+  animation-play-state: paused;
 }
 
+/* cada cenário fica oculto até ser ativado */
+.cenario {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  /* Transição de opacidade para o efeito suave */
+  transition: opacity 1s ease-in-out;
+  /* Por padrão, invisível e fora do fluxo */
+  opacity: 0;
+  /* Usamos 'visibility: hidden' para remover do fluxo de layout, mas 'display: none' é mais forte.
+     Como o display: none impede a transição, vamos usar 'visibility' e 'opacity'.
+     A visibilidade será controlada pelo JS para garantir que o cenário ativo esteja no topo. */
+  visibility: hidden;
+}
+
+.cenario.active {
+  /* Quando ativo, fica visível e pronto para interagir */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ---------- CENARIO 1 - Paris ---------- */
+.cenario1 .layer1 {
+  background: linear-gradient(to bottom, #47bfff 0%, #80d7ff 100%);
+  z-index: 1;
+  animation: none;
+}
+.cenario1 .layer2 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20Paris.png");
+  animation: none;
+  z-index: 2;
+}
+.cenario1 .layer3 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20Paris.png");
+  animation: moveBackground 28s linear infinite;
+  bottom: -2%;
+  z-index: 3;
+}
+.cenario1 .layer4 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
+  animation: moveBackground 2s linear infinite;
+  z-index: 4;
+}
+
+/* ---------- CENARIO 2 - Egito ---------- */
+.cenario2 .layer1 {
+  background: linear-gradient(to bottom, #d65d00 0%, #c2a92b 100%);
+  z-index: 1;
+  animation: none;
+}
+.cenario2 .layer2 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20Egito.png");
+  animation: moveBackground 60s linear infinite;
+  z-index: 2;
+}
+.cenario2 .layer3 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20Egito.png");
+  animation: none;
+  bottom: -10px;
+  z-index: 3;
+}
+.cenario2 .layer4 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
+  animation: moveBackground 2s linear infinite;
+  z-index: 4;
+}
+
+/* ---------- CENARIO 3 - China ---------- */
+.cenario3 .layer1 {
+  background: linear-gradient(to bottom, #47bfff 0%, #80d7ff 100%);
+  z-index: 1;
+  animation: none;
+}
+.cenario3 .layer2 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20China.png");
+  animation: moveBackground 60s linear infinite;
+  z-index: 2;
+}
+.cenario3 .layer3 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20China.png");
+  animation: none;
+  bottom: -10px;
+  z-index: 3;
+}
+.cenario3 .layer4 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
+  animation: moveBackground 2s linear infinite;
+  z-index: 4;
+}
+
+/* ---------- CENARIO 4 - Brasil ---------- */
+.cenario4 .layer1 {
+  background: linear-gradient(to bottom, #47bfff 0%, #80d7ff 100%);
+  z-index: 1;
+  animation: none;
+}
+.cenario4 .layer2 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20Brasil.png");
+  animation: moveBackground 60s linear no-repeat;
+  bottom: -10%;
+  z-index: 2;
+}
+.cenario4 .layer3 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20Brasilv2.png");
+  animation: moveBackground 28s linear infinite;
+  z-index: 3;
+}
+.cenario4 .layer4 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/3%20-%20Brasil.png");
+  animation: moveBackground 10s linear infinite;
+  z-index: 4;
+}
+.cenario4 .layer5 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
+  animation: moveBackground 2s linear infinite;
+  z-index: 5;
+}
+
+/* ---------- CENARIO 5 - EUA ---------- */
+.cenario5 .layer1 {
+  background: linear-gradient(to bottom, #172152 0%, #886dc2 100%);
+  z-index: 1;
+  animation: none;
+}
+
+.cenario5 .layer2 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/1%20-%20EUA.png");
+  animation: moveBackground 60s linear infinite;
+  z-index: 2;
+}
+
+.cenario5 .layer3 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/2%20-%20EUA.png");
+  animation: moveBackground 45s linear infinite;
+  z-index: 3;
+}
+.cenario5 .layer4 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/3%20-EUA.png");
+  animation: moveBackground 28s linear infinite;
+  z-index: 4;
+}
+.cenario5 .layer5 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/4%20-%20EUA.png");
+  z-index: 5;
+}
+.cenario5 .layer6 {
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Universal%20grass.png");
+  animation: moveBackground 2s linear infinite;
+  z-index: 6;
+}
+
+/* Animação do movimento horizontal das camadas (aplica-se às layers que têm animation) */
+@keyframes moveBackground {
+  from { background-position-x: 0; }
+  /* Usando a unidade vw (viewport width) para que o deslocamento seja relativo ao tamanho da tela */
+  to   { background-position-x: -100vw; }
+}
+
+/* personagem e obstáculo */
+.robson {
+  width: 18%;
+  height: 22%;
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/RobsonRunningv1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 17%;
+  left: 50px;
+  z-index: 10;
+  animation: walking 1.2s infinite; 
+}
+
+@keyframes walking {
+  0% {
+    transform: scaleX(1) scaleY(0.98);
+  }
+  25%{
+    transform: scaleX(1) scaleY(1.02);
+  }
+  50%{
+    transform: scaleX(1) scaleY(0.98);
+  }
+  75%{
+    transform: scaleX(1) scaleY(1.02);
+  }
+  100%{
+    transform: scaleX(1) scaleY(0.98) translateY(0px);
+  }
+}
+
+.obstacle {
+  width: 14%;
+  height: 10%;
+  background-image: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 17%;
+  left: 120%;
+  z-index: 10;
+}
+
+/* ESPAÇO DEDICADO PARA O COLETÁVEL */
+.collectible {
+  /* Estilo padrão do coletável */
+  width: 25%;
+  height: 25%;
+  border-radius: 100%;
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/43zmwht6b/Book.png"); /* Exemplo de imagem de livro */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 50%; /* Posição um pouco mais alta que o obstáculo */
+  left: 120%;
+  z-index: 10;
+  transition: opacity 0.2s ease-out; /* Para um efeito de desaparecimento suave */
+}
+/* FIM DO ESPAÇO DEDICADO PARA O COLETÁVEL */
+
+/* quando quiser pausar via classe */
+.game.paused .background {
+  animation-play-state: paused !important;
+}
