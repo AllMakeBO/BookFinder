@@ -58,7 +58,7 @@ body {
 .space{
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, black, #09083b 50%, #18166b);
+  background: linear-gradient(to bottom, black, #09083b 50%, #4b178a);
 }
 
 /* Estrelas */
