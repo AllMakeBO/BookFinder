@@ -5,12 +5,23 @@ const startBtn = document.getElementById('startBtn');
 const main = document.getElementById('main');
 const gameDiv = document.querySelector('.game');
 const scoreDisplay = document.getElementById('scoreDisplay');
+// Link direto para o som de pulo do Mario. Se este link não funcionar,
+// o som pode estar sendo bloqueado por políticas de autoplay ou CORS.
+const jumpSound = new Audio('https://www.myinstants.com/media/sounds/jump.mp3'); 
+// Som de coleta de item (moeda do Mario)
+const collectSound = new Audio('https://www.myinstants.com/media/sounds/smb_coin.mp3');
+// Som de Game Over
+const gameOverSound = new Audio('https://www.myinstants.com/media/sounds/smb_gameover.mp3');
+
+// Tenta pré-carregar o áudio para evitar atrasos na reprodução
+jumpSound.load();
+collectSound.load();
 
 let isJumping = false;
 let position = 0;
 let gameStarted = false;
 let lastTime = 0;
-let obstacleSpeed = 450; // Velocidade base em pixels/segundo, agora será ajustada para ser relativa
+let obstacleSpeed = 500; // Velocidade base em pixels/segundo, agora será ajustada para ser relativa
 let collectibleSpeed = obstacleSpeed * 0.8; // Coletável um pouco mais lento que o obstáculo
 let score = 0;
 let obstacleVisible = false; // Controla se o obstáculo está visível/ativo
@@ -33,9 +44,19 @@ function jump() {
   if (!gameStarted) return;
   if (isJumping) return; 
   isJumping = true;
+  
+  // Tenta tocar o som. Se falhar (por exemplo, devido a políticas de autoplay),
+  // o erro é silenciado para não quebrar o jogo.
+  try {
+      jumpSound.currentTime = 0; // Reinicia o áudio
+      jumpSound.play(); // Toca o som de pulo
+  } catch (e) {
+      console.error("Erro ao tentar tocar o som de pulo:", e);
+      // O som não será tocado, mas o jogo continua
+  }
 
   const altura = gameDiv.clientHeight;
-  const jumpHeight = altura * 0.25;
+  const jumpHeight = altura * 0.30;
   // O passo do pulo agora é proporcional à altura do jogo, garantindo velocidade consistente
   const jumpStep = jumpHeight / 30; // Ex: Se jumpHeight for 200px, o passo é 20px
   const intervalTime = 9;
@@ -92,6 +113,10 @@ function gameLoop(currentTime) {
   const gameWidth = getGameWidth();
   // Ajuste para 800px como largura de referência
   const speedFactor = gameWidth / 800; 
+  // Aumenta a velocidade base gradualmente a cada frame
+  obstacleSpeed += 0.05 * deltaTime; // Aumento sutil e constante de dificuldade
+  collectibleSpeed = obstacleSpeed * 0.8; // Mantém a proporção
+  
   const currentObstacleSpeed = obstacleSpeed * speedFactor;
   const currentCollectibleSpeed = currentObstacleSpeed * 0.8; // Mantém a proporção
 
@@ -210,6 +235,14 @@ if (collided) {
   document.querySelectorAll('.background').forEach(bg => bg.style.animationPlayState = 'paused');
   gameDiv.classList.add('paused');
 
+  // Toca o som de Game Over
+  try {
+      gameOverSound.currentTime = 0;
+      gameOverSound.play();
+  } catch (e) {
+      console.error("Erro ao tentar tocar o som de Game Over:", e);
+  }
+
   // Se o jogador coletou 10 ou mais livros, mostra uma curiosidade aleatória
   if (score >= 10) {
     mostrarCuriosidade();
@@ -247,6 +280,15 @@ function checkCollectibleCollision() {
     updateScoreDisplay();
     collectibleVisible = false;
     collectible.style.opacity = 0; // Efeito de desaparecimento
+    
+    // Toca o som de coleta
+    try {
+        collectSound.currentTime = 0;
+        collectSound.play();
+    } catch (e) {
+        console.error("Erro ao tentar tocar o som de coleta:", e);
+    }
+
     // Agenda o próximo coletável
     setTimeout(spawnCollectible, Math.random() * 3000 + 2000);
   }
@@ -257,10 +299,32 @@ const cenarios = document.querySelectorAll('.cenario');
 
 function trocarCenarioAleatorio() {
   if (!cenarios || cenarios.length === 0) return;
-  cenarios.forEach(c => c.classList.remove('active'));
-  const indice = Math.floor(Math.random() * cenarios.length);
-  cenarios[indice].classList.add('active');
-  obstacleSpeed = obstacleSpeed + 80;
+  
+  // Encontra o cenário ativo atual (se houver)
+  const cenarioAtual = document.querySelector('.cenario.active');
+
+  // Seleciona um novo cenário aleatório, garantindo que não seja o mesmo
+  let indice;
+  let novoCenario;
+  do {
+      indice = Math.floor(Math.random() * cenarios.length);
+      novoCenario = cenarios[indice];
+  } while (cenarioAtual && novoCenario === cenarioAtual);
+
+  // Remove a classe 'active' do cenário atual para iniciar o fade-out
+  if (cenarioAtual) {
+    cenarioAtual.classList.remove('active');
+  }
+  
+  // Adiciona a classe 'active' ao novo cenário após um pequeno atraso
+  // O atraso de 100ms é para garantir que o cenário anterior comece a transição de opacidade.
+  // A transição de 1s está no CSS.
+  setTimeout(() => {
+      novoCenario.classList.add('active');
+  }, 100); 
+
+  // Aumento de velocidade removido daqui, pois agora é gradual no gameLoop.
+  // Isso evita picos de dificuldade abruptos na troca de cenário.
   
   const obstacleRandom = obstacleDesign[Math.floor(Math.random() * obstacleDesign.length)];
   obstacle.style.backgroundImage = obstacleRandom;
@@ -272,6 +336,13 @@ startBtn.addEventListener('click', () => {
     gameStarted = true;
     startBtn.style.display = 'none';
     main.style.display = 'block';
+    // Tenta tocar o som uma vez após o clique inicial do usuário,
+    // o que pode ajudar a desbloquear o autoplay em alguns navegadores.
+    try {
+        jumpSound.play().catch(e => console.log("Autoplay bloqueado na inicialização."));
+    } catch (e) {
+        // Ignora erros de inicialização
+    }
     trocarCenarioAleatorio();
     document.querySelectorAll('.background').forEach(bg => {
       bg.style.animationPlayState = 'running';
@@ -298,7 +369,11 @@ setInterval(() => {
 }, 20000);
 
 // Troca inicial para garantir que um cenário esteja ativo ao começar
-trocarCenarioAleatorio();
+// A troca inicial precisa ser síncrona, pois o jogo ainda não começou.
+if (cenarios && cenarios.length > 0) {
+    const indice = Math.floor(Math.random() * cenarios.length);
+    cenarios[indice].classList.add('active');
+}
 
 // --- LISTA DE CURIOSIDADES ---
 const curiosidades = [
@@ -504,8 +579,7 @@ const curiosidades = [
 "Uma Lagarta Muito Comilona - (1969) - O livro tem buracos nas páginas para mostrar o caminho da lagarta, o que era uma inovação na época.",
 ];
 
-// --- FUNÇÃO PARA ESCOLHER CURIOSIDADE ALEATÓRIA ---
 function mostrarCuriosidade() {
-  const curiosidade = curiosidades[Math.floor(Math.random() * curiosidades.length)];
-  alert(`📖 Curiosidade literária desbloqueada, parabéns!:\n\n${curiosidade}`);
+    const curiosidade = curiosidades[Math.floor(Math.random() * curiosidades.length)];
+    alert(`Curiosidade Literária: ${curiosidade}`);
 }
