@@ -5,13 +5,19 @@ const startBtn = document.getElementById('startBtn');
 const main = document.getElementById('main');
 const gameDiv = document.querySelector('.game');
 const scoreDisplay = document.getElementById('scoreDisplay');
+
 // Link direto para o som de pulo do Mario. Se este link não funcionar,
 // o som pode estar sendo bloqueado por políticas de autoplay ou CORS.
-const jumpSound = new Audio('https://www.myinstants.com/media/sounds/jump.mp3'); 
+const jumpSound = new Audio('https://www.myinstants.com/media/sounds/jump.mp3');
+
 // Som de coleta de item (moeda do Mario)
 const collectSound = new Audio('Book.mp3');
+
 // Som de Game Over
 const gameOverSound = new Audio('GameOver - Definitive.mp3');
+
+const backgroundMusic = new Audio('Background music.mp3');
+backgroundMusic.loop = true;
 
 // Tenta pré-carregar o áudio para evitar atrasos na reprodução
 jumpSound.load();
@@ -234,6 +240,9 @@ if (collided) {
   gameStarted = false;
   document.querySelectorAll('.background').forEach(bg => bg.style.animationPlayState = 'paused');
   gameDiv.classList.add('paused');
+  
+  backgroundMusic.pause();
+  backgroundMusic.currentTime = 0; // reinicia pro início
 
   // Toca o som de Game Over
   try {
@@ -340,6 +349,10 @@ startBtn.addEventListener('click', () => {
     main.style.display = 'block';
     // Tenta tocar o som uma vez após o clique inicial do usuário,
     // o que pode ajudar a desbloquear o autoplay em alguns navegadores.
+    
+    backgroundMusic.currentTime = 0;
+    backgroundMusic.play();
+    
     try {
         jumpSound.play().catch(e => console.log("Autoplay bloqueado na inicialização."));
     } catch (e) {
@@ -585,6 +598,5 @@ function mostrarCuriosidade() {
     const curiosidade = curiosidades[Math.floor(Math.random() * curiosidades.length)];
     alert(`Parabéns, você desbloqueou uma das 200 curiosidades literárias 👍: ${curiosidade}`);
 }
-
 
 
