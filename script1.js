@@ -11,7 +11,7 @@ const jumpSound = new Audio('https://www.myinstants.com/media/sounds/jump.mp3');
 // Som de coleta de item (moeda do Mario)
 const collectSound = new Audio('smb_coin.mp3');
 // Som de Game Over
-const gameOverSound = new Audio('https://www.myinstants.com/media/sounds/smb_gameover.mp3');
+const gameOverSound = new Audio('GameOver - Definitive.mp3');
 
 // Tenta pré-carregar o áudio para evitar atrasos na reprodução
 jumpSound.load();
@@ -585,4 +585,5 @@ function mostrarCuriosidade() {
     const curiosidade = curiosidades[Math.floor(Math.random() * curiosidades.length)];
     alert(`Parabéns, você desbloqueou uma das 200 curiosidades literárias 👍: ${curiosidade}`);
 }
+
 
