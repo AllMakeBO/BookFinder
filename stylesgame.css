@@ -6,7 +6,7 @@
 
 body {
   margin: 0;
-  background: linear-gradient(to bottom, black, #09083b 50%, #18166b);
+  background: linear-gradient(to bottom, black, #09083b 50%, #4b178a);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -297,3 +297,4 @@ body {
 .game.paused .background {
   animation-play-state: paused !important;
 }
+
