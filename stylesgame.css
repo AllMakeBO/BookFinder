@@ -79,11 +79,20 @@ body {
   top: 0;
   left: 0;
   overflow: hidden;
-  display: none;
+  /* Transição de opacidade para o efeito suave */
+  transition: opacity 1s ease-in-out;
+  /* Por padrão, invisível e fora do fluxo */
+  opacity: 0;
+  /* Usamos 'visibility: hidden' para remover do fluxo de layout, mas 'display: none' é mais forte.
+     Como o display: none impede a transição, vamos usar 'visibility' e 'opacity'.
+     A visibilidade será controlada pelo JS para garantir que o cenário ativo esteja no topo. */
+  visibility: hidden;
 }
 
 .cenario.active {
-  display: block;
+  /* Quando ativo, fica visível e pronto para interagir */
+  opacity: 1;
+  visibility: visible;
 }
 
 /* ---------- CENARIO 1 - Paris ---------- */
