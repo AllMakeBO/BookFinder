@@ -9,6 +9,7 @@ const scoreDisplay = document.getElementById('scoreDisplay');
 // Link direto para o som de pulo do Mario. Se este link não funcionar,
 // o som pode estar sendo bloqueado por políticas de autoplay ou CORS.
 const jumpSound = new Audio('https://www.myinstants.com/media/sounds/jump.mp3');
+jumpSound.volume = 0.5;
 
 // Som de coleta de item (moeda do Mario)
 const collectSound = new Audio('Book.mp3');
@@ -598,5 +599,6 @@ function mostrarCuriosidade() {
     const curiosidade = curiosidades[Math.floor(Math.random() * curiosidades.length)];
     alert(`Parabéns, você desbloqueou uma das 200 curiosidades literárias 👍: ${curiosidade}`);
 }
+
 
 
